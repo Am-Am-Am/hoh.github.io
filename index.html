@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Прокрутка</title>
+</head>
+<body>
+<div class="menu">
+      <div class="menu_item"><a class="scroll" href="#block1">block 1</a></div>
+    <div class="menu_item"><a class="scroll" href="#block2">block 2</a></div>
+    <div class="menu_item"><a class="scroll" href="#block3">block 3</a></div>
+    <div class="menu_item"><a class="scroll" href="#block4">block 4</a></div>
+</div>
+<div class="container">
+  <div id="block1" class="block"><h1>BLOCK 1</h1></div>
+  <div id="block2" class="block"><h1>BLOCK 2</h1></div>
+  <div id="block3" class="block"><h1>BLOCK 3</h1></div>
+  <div id="block4" class="block"><h1>BLOCK 4</h1></div>
+</div>
+<script>
+    let links = document.querySelectorAll('.scroll');
+    let targetID;
+    links.forEach(function (element){
+        element.addEventListener('click', function(event){
+            event.preventDefault();
+            targetID = element.getAttribute('href');
+            document.querySelector(targetID).scrollIntoView({
+                bahavior: 'smooth',
+                block: 'start'
+            })
+        })
+    })
+</script>
+</body>
+</html>
